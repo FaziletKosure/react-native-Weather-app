@@ -1,2 +1,2 @@
-# react-native-chat-app
-Build a Realtime Chat App in React Native
+# react-native-weather-app
+Build a Realtime weather App in React Native
