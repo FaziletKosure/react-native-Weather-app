@@ -12,6 +12,7 @@ import {
   TextInput,
   ActivityIndicator,
   KeyboardAvoidingView,
+  Keyboard,
 } from 'react-native';
 
 import {main} from './src/styles';
@@ -75,6 +76,7 @@ const App = () => {
       .catch((error) => console.error(error))
       .finally(() => {
         setAppState({...appState, isLoading: false});
+        Keyboard.dismiss();
       });
   };
 
