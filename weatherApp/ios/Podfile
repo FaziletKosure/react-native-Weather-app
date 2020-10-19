@@ -8,6 +8,8 @@ target 'weatherApp' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
+
   target 'weatherAppTests' do
     inherit! :complete
     # Pods for testing
