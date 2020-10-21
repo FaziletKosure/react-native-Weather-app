@@ -13,6 +13,7 @@ import {
   ActivityIndicator,
   KeyboardAvoidingView,
   Keyboard,
+  Button,
 } from 'react-native';
 
 import {main} from './src/styles';
@@ -23,7 +24,7 @@ import Loader from './src/Loading';
 
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
-const App = () => {
+const App = (props) => {
   const [appState, setAppState] = useState({
     data: [],
     isLoading: true,
@@ -44,6 +45,7 @@ const App = () => {
     )
       // https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=YOUR_API_KEY
       // https://api.openweathermap.org/data/2.5/weather?q=London&appid={API key}
+
       .then((response) => response.json())
       .then((json) => {
         console.log(json);
@@ -84,6 +86,12 @@ const App = () => {
     setAppState({...appState});
   }, [appState.city]);
 
+  const renderSunRise = () => {
+    if (appState.sunrise) {
+      return <Text style={main.city_text}>Sunrise: {appState.sunrise}</Text>;
+    }
+  };
+
   return (
     <SafeAreaView style={main.container}>
       <KeyboardAvoidingView>
@@ -94,7 +102,7 @@ const App = () => {
           <View style={main.Search_Box_View}>
             <TextInput
               keyboardAppearance="dark"
-              placeholder="Search"
+              placeholder="Search a city"
               placeholderTextColor="#FFF"
               style={main.Search_Box}
               value={appState.city}
@@ -120,7 +128,7 @@ const App = () => {
               <View>
                 <Text style={main.temprature_text}>{appState.temp}</Text>
                 <Text style={main.city_text}>{appState.city_display}</Text>
-                <Text style={main.city_text}>Sunrise:{appState.sunrise}</Text>
+                {renderSunRise()}
               </View>
             </View>
           </View>
@@ -144,6 +152,11 @@ const App = () => {
               </View>
             </View>
           )}
+          <Button
+            style={{padding: 20}}
+            title="Back to imageGalery"
+            onPress={() => props.navigation.goBack()}
+          />
         </ImageBackground>
       </KeyboardAvoidingView>
     </SafeAreaView>
