@@ -153,6 +153,10 @@ const App = (props) => {
             </View>
           )}
           <Button
+            title="Go ClarusSoft!"
+            onPress={() => props.navigation.navigate('WebPage')}
+          />
+          <Button
             style={{padding: 20}}
             title="Back to imageGalery"
             onPress={() => props.navigation.goBack()}

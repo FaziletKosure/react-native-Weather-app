@@ -5,6 +5,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 import ImageGallery from './pages/ImageGallery';
+import WebPape from './pages/WebPage';
+import HangMan from './pages/HangMan';
 import App from '../App';
 
 function Router() {
@@ -12,11 +14,13 @@ function Router() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          gestureEnabled: false,
+          gestureEnabled: true,
           headerShown: false,
         }}>
         <Stack.Screen name="ImageGalleryPage" component={ImageGallery} />
         <Stack.Screen name="WeatherPage" component={App} />
+        <Stack.Screen name="WebPage" component={WebPape} />
+        <Stack.Screen name="HangMan" component={HangMan} />
       </Stack.Navigator>
     </NavigationContainer>
   );
