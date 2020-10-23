@@ -9,6 +9,10 @@ const HangMan = (props) => {
         source={{uri: ' https://faziletkosure.github.io/js_hangman_game/'}}
       />
       <Button
+        title="Go to Cafe Page"
+        onPress={() => props.navigation.navigate('CafeListPage')}
+      />
+      <Button
         style={{padding: 20}}
         title="Back to imageGalery"
         onPress={() => props.navigation.goBack()}
