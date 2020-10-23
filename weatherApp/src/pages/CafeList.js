@@ -75,21 +75,13 @@ const CafeList = ({route, navigation}) => {
             onChangeText={(t) => setText(t)}
             value={text}
           />
-          {/* <TextInput
-            placeholder="Meal"
-            placeholderTextColor="#FFF"
-            style={styles.Search_Box}
-            onChangeText={(t) => setMeal(t)}
-            value={meal}
-          /> */}
-
           <TouchableOpacity
             style={styles.button_touch}
             onPress={() => fetchCafes(text, meal)}>
             <Icon
               style={{marginLeft: 5}}
               name="search"
-              size={30}
+              size={25}
               color="#FFF"
             />
           </TouchableOpacity>
@@ -99,7 +91,7 @@ const CafeList = ({route, navigation}) => {
           data={appState}
           renderItem={renderItemList}
           horizontal={false}
-          numColumns={2}
+          //   numColumns={2}
         />
       </View>
     </SafeAreaView>
@@ -118,15 +110,16 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   Search_Box_View: {
-    height: '20%',
+    height: '15%',
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
+    // marginVertical: 5,
   },
   Search_Box: {
     height: '35%',
-    width: '80%',
+    width: '85%',
     borderColor: '#FFF',
     borderWidth: 1,
     borderRadius: 15,
@@ -134,78 +127,4 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     backgroundColor: '#fafafa',
   },
-  //   button_touch: {
-  //     marginLeft: '5%',
-  //     height: '35%',
-  //     width: '8%',
-  //     justifyContent: 'center',
-  //     alignItems: 'center',
-  //   },
-  //   Weather_Box_Main: {
-  //     height: '30%',
-  //     width: '100%',
-  //     justifyContent: 'center',
-  //     alignItems: 'center',
-  //     flexDirection: 'row',
-  //   },
-  //   Weather_Holder_View: {
-  //     height: '80%',
-  //     width: '90%',
-  //     backgroundColor: 'rgba(255, 255, 255, 0.3)',
-  //     borderRadius: 15,
-  //     alignItems: 'center',
-  //     flexDirection: 'row',
-  //   },
-  //   Weather_Image: {
-  //     height: '80%',
-  //     width: '50%',
-  //   },
-  //   temprature_text: {
-  //     fontSize: 30,
-  //     color: '#FFF',
-  //     marginLeft: '5%',
-  //   },
-  //   city_text: {
-  //     fontSize: 20,
-  //     color: '#FFF',
-  //     marginLeft: '5%',
-  //     marginTop: '3%',
-  //   },
-  //   Info_Box_View: {
-  //     height: '45%',
-  //     width: '100%',
-  //     justifyContent: 'center',
-  //     alignItems: 'center',
-  //   },
-  //   Info_Holder_Veiw: {
-  //     height: '80%',
-  //     width: '90%',
-  //     backgroundColor: 'rgba(255, 255, 255, 0.92)',
-  //     borderRadius: 15,
-  //   },
-  //   Main_Weather_Text: {
-  //     fontSize: 28,
-  //     color: '#464646',
-  //     marginLeft: '8%',
-  //     marginTop: '8%',
-  //     fontWeight: 'bold',
-  //   },
-  //   description_text: {
-  //     fontSize: 20,
-  //     color: '#121212',
-  //     marginLeft: '8%',
-  //     marginTop: '3%',
-  //   },
-  //   humidity_text: {
-  //     fontSize: 18,
-  //     color: '#121212',
-  //     marginLeft: '8%',
-  //     marginTop: '5%',
-  //   },
-  //   other_text: {
-  //     fontSize: 18,
-  //     color: '#121212',
-  //     marginLeft: '8%',
-  //     marginTop: '2%',
-  //   },
 });
