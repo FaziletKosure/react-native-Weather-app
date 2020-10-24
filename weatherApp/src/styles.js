@@ -1,11 +1,4 @@
 import {StyleSheet, Dimensions} from 'react-native';
-
-/**
- * #303e45
- * #a7b6bd
- * #4a636e
- * #ff9b31
- */
 const HEIGHT = Dimensions.get('window').height;
 const WIDTH = Dimensions.get('window').width;
 const main = StyleSheet.create({

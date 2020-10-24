@@ -10,11 +10,11 @@ import {
   Dimensions,
   Keyboard,
   FlatList,
+  ImageBackground,
 } from 'react-native';
 import Config from 'react-native-config';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import Item from './Item';
-// const apiKey = Config.YOUR_API_KEY
 const HEIGHT = Dimensions.get('window').height;
 const WIDTH = Dimensions.get('window').width;
 const CafeList = ({route, navigation}) => {
@@ -39,38 +39,34 @@ const CafeList = ({route, navigation}) => {
         console.log(json.businesses);
         const filtered = json.businesses.filter((x) => x.image_url);
         setAppState(filtered);
-        console.log(appState);
       })
       .catch((error) => console.error(error))
       .finally(() => {
         Keyboard.dismiss();
       });
   };
-
-  // useEffect(() => {
-  //     setAppState([...appState]);
-  // }, [appState]);
   const renderItemList = ({item}) => (
     <Item
       cafe={item}
       onSelect={() => navigation.navigate('CafePage', {selectedCafe: item})}
     />
   );
-
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{backgroundColor: '#b2dfdb', flex: 1}}>
+      <ImageBackground
+        source={require('../assets/greece-terrace-beach-bar.jpg')}
+        style={styles.Image_Background_Style}>
         <View>
           <Button
             title="Go to Image Gallery"
             color="#82ada9"
-            onPress={() => navigation.navigate('FirstPage')}
+            onPress={() => navigation.navigate('ImageGalleryPage')}
           />
         </View>
         <View style={styles.Search_Box_View}>
           <TextInput
             placeholder="Search location"
-            placeholderTextColor="black"
+            placeholderTextColor="white"
             style={styles.Search_Box}
             onChangeText={(t) => setText(t)}
             value={text}
@@ -91,15 +87,13 @@ const CafeList = ({route, navigation}) => {
           data={appState}
           renderItem={renderItemList}
           horizontal={false}
-          //   numColumns={2}
         />
-      </View>
+      </ImageBackground>
     </SafeAreaView>
   );
 };
 
 export default CafeList;
-
 const styles = StyleSheet.create({
   container: {
     height: HEIGHT,
@@ -115,16 +109,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    // marginVertical: 5,
   },
   Search_Box: {
     height: '35%',
-    width: '85%',
+    width: '80%',
     borderColor: '#FFF',
     borderWidth: 1,
     borderRadius: 15,
-    color: 'black',
+    color: '#FFF',
     paddingHorizontal: 15,
-    backgroundColor: '#fafafa',
+    fontSize: 18,
+    alignSelf: 'center',
   },
 });
